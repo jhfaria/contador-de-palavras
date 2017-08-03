@@ -1,17 +1,17 @@
- /*************************************************************************************************************************************\
-|																																		|
-|	João Henrique Faria		RA170501	03/08/2017 																						|
-|																																		|
-|	** Word counter ** 																													|
-|																																		|
-|		This script receives several characters in its input, represeting words. The script reads every character until reaching a line |
-|	feed character (\n). Then, the script prints the number of words of the input file, and finishes. 									|
-|																																		|
-|	* Tests *																															|
-|																																		|
-|		12/12 (100%)																													|
-|																																		|
- \*************************************************************************************************************************************/
+ /*********************************************************************************************************************************\
+|																																	|
+|	João Henrique Faria		RA170501	03/08/2017 																					|
+|																																	|
+|	** Word counter ** 																												|
+|																																	|
+|		This script receives several characters in its input, represeting words. The script reads every character until reaching	|
+|	a line feed character (\n). Then, the script prints the number of words of the input file, and finishes. 						|
+|																																	|
+|	* Tests *																														|
+|																																	|
+|		12/12 (100%)																												|
+|																																	|
+ \*********************************************************************************************************************************/
 
 /* library inclusion */
 #include <stdio.h>
