@@ -9,53 +9,56 @@
 
 int main() 
 {
-	char c;
-	int palavras;
+	char c_now, c_before;
+	int words;
+	int flag_floating_point;
 
-	c = 1;
-	palavras = 0;
+	c_now 	 = 1;
+	c_before = 1;
+	words	 = 0;
 
-	while (c != '\n') 
+	flag_floating_point = 0;
+
+	scanf("%c", &c_before);
+
+	while(c_now != '\n') 
 	{
-	    scanf("%c", &c);
+		scanf("%c", &c_now);
 
-	    if ((c >= 30) && (c <= 39))
-	    {
-	    	scanf("%c", &c);
+		if((c_now == '\n') || (c_now == '.') || (c_now == ','))
+		{
+			if(((c_before >= 65) && (c_before <= 90)) || ((c_before >= 97) && (c_before <= 122)))
+			{
+				words += 1;
+			}
+		}
 
-	    	if ((c == ' ') || (c == '\n'))
-	    	{
-	    		palavras += 1;
-	    	}
-	    }
+		else if((c_now == ' ') || (c_now == '!') || (c_now == ')') || (c_now == '?') || (c_now == ':') || (c_now == ';') || (c_now == '-'))
+		{
+			if(((c_before >= 65) && (c_before <= 90)) || ((c_before >= 97) && (c_before <= 122)) || ((c_before >= 48) && (c_before <= 57)))
+			{
+				words += 1;
 
-	    else if (((c >= 41) && (c <= 90)) || ((c >= 97) && (c <= 122)))
-	    {
-	    	scanf("%c", &c);
+				if(flag_floating_point == 1) {flag_floating_point = 0;}
+			}
+		}
 
-	    	if (((c >= 21) && (c <= 47)) || (c == 58) || (c == 59))
-	    	{
-	    		scanf("%c", &c);
+		if(((c_now == '.') || (c_now == ',')) && ((c_before >= 48) && (c_before <= 57)))
+		{
+			if(flag_floating_point == 1)
+			{
+				words += 1;
 
-	    		if ((c == ' ') || (c == '\n'))
-	    		{
-	    			palavras += 1;
-	    		}
+				flag_floating_point = 0;
+			}
 
-	    		else if (((c >= 41) && (c <= 90)) || ((c >= 97) && (c <= 122)))
-	    		{
-	    			palavras += 1;
-	    		}
-	    	}
+			flag_floating_point = 1;
+		}
 
-	    	else if ((c == ' ') || (c == '\n'))
-	    	{
-	    		palavras += 1;
-	    	}
-	    }
+		c_before = c_now;
 	}
 
-  printf("%d\n", palavras);
+	printf("%d\n", words);
 
-  return 0;
+	return 0;
 }
